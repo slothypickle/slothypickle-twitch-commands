@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SlothyPickle Twitch Commands</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #0A0F12;
+      color: #EAFBF0;
+      line-height: 1.5;
+    }
+
+    header {
+      padding: 40px 20px;
+      text-align: center;
+      background: linear-gradient(135deg, #0A0F12, #1A1F24);
+      border-bottom: 2px solid #6CFF9A;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 42px;
+      color: #6CFF9A;
+    }
+
+    .subtitle {
+      margin-top: 10px;
+      color: #B8C7BE;
+      font-size: 18px;
+    }
+
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 30px 20px 60px;
+    }
+
+    .section {
+      margin-bottom: 30px;
+      background: #11181C;
+      border: 1px solid #263238;
+      border-radius: 14px;
+      padding: 22px;
+      box-shadow: 0 0 20px rgba(108, 255, 154, 0.08);
+    }
+
+    h2 {
+      margin-top: 0;
+      color: #3FD9FF;
+      border-bottom: 1px solid #263238;
+      padding-bottom: 10px;
+    }
+
+    .commands {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 14px;
+    }
+
+    .command {
+      background: #0D1316;
+      border: 1px solid #243036;
+      border-radius: 10px;
+      padding: 14px;
+    }
+
+    .command-name {
+      font-weight: bold;
+      color: #6CFF9A;
+      font-size: 18px;
+    }
+
+    .aliases {
+      color: #B8C7BE;
+      font-size: 14px;
+      margin-top: 4px;
+    }
+
+    .desc {
+      margin-top: 8px;
+      color: #EAFBF0;
+    }
+
+    .example {
+      margin-top: 8px;
+      font-family: Consolas, monospace;
+      color: #3FD9FF;
+      font-size: 14px;
+    }
+
+    footer {
+      text-align: center;
+      color: #7D8B84;
+      padding: 25px;
+      border-top: 1px solid #263238;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>SlothyPickle Commands</h1>
+    <div class="subtitle">Pickles, chat games, stats, raffles, and stream tools.</div>
+  </header>
+
+  <main>
+    <section class="section">
+      <h2>Popular Commands</h2>
+      <div class="commands">
+        <div class="command">
+          <div class="command-name">!pickles</div>
+          <div class="aliases">Aliases: none</div>
+          <div class="desc">Check your current pickle balance.</div>
+          <div class="example">Example: !pickles</div>
+        </div>
+
+        <div class="command">
+          <div class="command-name">!watchstats</div>
+          <div class="aliases">Aliases: none</div>
+          <div class="desc">Shows watch time and pickles earned from watching.</div>
+          <div class="example">Example: !watchstats @username</div>
+        </div>
+
+        <div class="command">
+          <div class="command-name">!leaderboard</div>
+          <div class="aliases">Aliases: none</div>
+          <div class="desc">Shows the pickle leaderboard.</div>
+          <div class="example">Example: !leaderboard</div>
+        </div>
+
+        <div class="command">
+          <div class="command-name">!optout</div>
+          <div class="aliases">Aliases: none</div>
+          <div class="desc">Opt out of pickles, chat games, and related leaderboards.</div>
+          <div class="example">Example: !optout</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Chat Games</h2>
+      <div class="commands">
+        <div class="command">
+          <div class="command-name">!slots</div>
+          <div class="aliases">Aliases: !s, ! s, slots, s</div>
+          <div class="desc">Spin the pickle slot machine.</div>
+          <div class="example">Example: !s 10k</div>
+        </div>
+
+        <div class="command">
+          <div class="command-name">!roulette</div>
+          <div class="aliases">Aliases: !r, r</div>
+          <div class="desc">Bet pickles on roulette.</div>
+          <div class="example">Example: !r red 5k</div>
+        </div>
+
+        <div class="command">
+          <div class="command-name">!blackjack</div>
+          <div class="aliases">Aliases: !bj, bj</div>
+          <div class="desc">Start a blackjack hand.</div>
+          <div class="example">Example: !bj 10k</div>
+        </div>
+
+        <div class="command">
+          <div class="command-name">!hit / !stand</div>
+          <div class="aliases">Aliases: hit, h, stand, s</div>
+          <div class="desc">Use during an active blackjack hand.</div>
+          <div class="example">Example: !hit</div>
+        </div>
+
+        <div class="command">
+          <div class="command-name">!duel</div>
+          <div class="aliases">Aliases: none</div>
+          <div class="desc">Challenge another viewer to a pickle duel.</div>
+          <div class="example">Example: !duel @username 10k</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Raffle</h2>
+      <div class="commands">
+        <div class="command">
+          <div class="command-name">!join</div>
+          <div class="aliases">Aliases: none</div>
+          <div class="desc">Join an active raffle when entries are open.</div>
+          <div class="example">Example: !join</div>
+        </div>
+
+        <div class="command">
+          <div class="command-name">!raffle</div>
+          <div class="aliases">Broadcaster only</div>
+          <div class="desc">Starts a raffle.</div>
+          <div class="example">Example: !raffle</div>
+        </div>
+
+        <div class="command">
+          <div class="command-name">!roll</div>
+          <div class="aliases">Broadcaster only</div>
+          <div class="desc">Forces the raffle roll.</div>
+          <div class="example">Example: !roll</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Stats & Reports</h2>
+      <div class="commands">
+        <div class="command">
+          <div class="command-name">!stats</div>
+          <div class="aliases">Aliases: none</div>
+          <div class="desc">Shows your chat game stats.</div>
+          <div class="example">Example: !stats @username</div>
+        </div>
+
+        <div class="command">
+          <div class="command-name">!allstats</div>
+          <div class="aliases">Aliases: none</div>
+          <div class="desc">Shows broader chat game stats.</div>
+          <div class="example">Example: !allstats</div>
+        </div>
+
+        <div class="command">
+          <div class="command-name">!brinereport</div>
+          <div class="aliases">Aliases: none</div>
+          <div class="desc">Shows pickle economy inflation and circulation info.</div>
+          <div class="example">Example: !brinereport</div>
+        </div>
+
+        <div class="command">
+          <div class="command-name">!lastseen</div>
+          <div class="aliases">Aliases: none</div>
+          <div class="desc">Shows when someone was last seen in chat.</div>
+          <div class="example">Example: !lastseen @username</div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    SlothyPickle command list. Fake chat currency. No real money value.
+  </footer>
+</body>
+</html>
