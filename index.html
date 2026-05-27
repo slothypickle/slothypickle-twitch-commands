@@ -50,7 +50,7 @@
 
     header {
       position: relative;
-      padding: 44px 20px 34px;
+      padding: 42px 20px 34px;
       text-align: center;
       border-bottom: 2px solid rgba(108, 255, 154, 0.5);
       box-shadow: 0 0 45px rgba(108, 255, 154, 0.12);
@@ -108,76 +108,11 @@
       padding: 28px 18px 70px;
     }
 
-    .featured {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 16px;
-      margin-bottom: 22px;
-    }
-
-    .featured-card {
-      display: flex;
-      gap: 16px;
-      align-items: center;
-      padding: 18px;
-      background: linear-gradient(135deg, rgba(108, 255, 154, 0.12), rgba(63, 217, 255, 0.07));
-      border: 1px solid rgba(108, 255, 154, 0.45);
-      border-radius: 18px;
-      box-shadow: 0 0 28px rgba(108, 255, 154, 0.08);
-    }
-
-    .featured-card > img {
-      width: 72px;
-      height: 72px;
-      object-fit: contain;
-      filter: drop-shadow(0 0 12px rgba(108, 255, 154, 0.25));
-      flex: 0 0 auto;
-    }
-
-    .featured-title {
-      font-size: 22px;
-      font-weight: 900;
-      color: var(--green);
-    }
-
-    .featured-desc {
-      color: var(--muted);
-      margin-top: 4px;
-      font-size: 14px;
-    }
-
-    .emote-command {
-      display: inline-flex;
-      align-items: center;
-      gap: 2px;
-      color: var(--green);
-      font-size: 24px;
-      font-weight: 900;
-      line-height: 1;
-    }
-
-    .emote-command img {
-      width: 42px;
-      height: 42px;
-      object-fit: contain;
-      vertical-align: middle;
-      filter: drop-shadow(0 0 8px rgba(108, 255, 154, 0.22));
-    }
-
-    .featured-title .emote-command {
-      font-size: 28px;
-    }
-
-    .featured-title .emote-command img {
-      width: 52px;
-      height: 52px;
-    }
-
     .controls {
       position: sticky;
       top: 0;
       z-index: 5;
-      margin: 18px 0 26px;
+      margin: 0 0 26px;
       padding: 14px;
       background: rgba(7, 11, 13, 0.92);
       backdrop-filter: blur(10px);
@@ -240,15 +175,18 @@
     }
 
     .section-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
       padding: 16px 18px;
       border-bottom: 1px solid var(--line);
       background:
         linear-gradient(90deg, rgba(108,255,154,0.12), transparent),
         #0d1418;
+    }
+
+    .section-title-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
     }
 
     h2 {
@@ -260,6 +198,25 @@
 
     .count {
       color: var(--muted);
+      font-size: 13px;
+      white-space: nowrap;
+    }
+
+    .section-subtitle {
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: 14px;
+      max-width: 880px;
+    }
+
+    .section-subtitle code {
+      display: inline-block;
+      padding: 2px 6px;
+      border: 1px solid rgba(63, 217, 255, 0.22);
+      border-radius: 6px;
+      background: rgba(63, 217, 255, 0.06);
+      color: var(--cyan);
+      font-family: Consolas, Monaco, monospace;
       font-size: 13px;
     }
 
@@ -273,11 +230,15 @@
     .command {
       position: relative;
       padding: 15px;
-      min-height: 152px;
+      min-height: 138px;
       background: linear-gradient(180deg, #0c1215, #0a0f12);
       border: 1px solid #25343b;
       border-radius: 14px;
       transition: transform 120ms ease, border-color 120ms ease, box-shadow 120ms ease;
+    }
+
+    .command.wide {
+      grid-column: span 2;
     }
 
     .command:hover {
@@ -293,17 +254,28 @@
       margin-bottom: 8px;
     }
 
-    .command-icon {
-      width: 34px;
-      height: 34px;
-      object-fit: contain;
-      flex: 0 0 auto;
-    }
-
     .command-name {
       color: var(--green);
       font-size: 20px;
       font-weight: 900;
+    }
+
+    .emote-command {
+      display: inline-flex;
+      align-items: center;
+      gap: 2px;
+      color: var(--green);
+      font-size: 24px;
+      font-weight: 900;
+      line-height: 1;
+    }
+
+    .emote-command img {
+      width: 42px;
+      height: 42px;
+      object-fit: contain;
+      vertical-align: middle;
+      filter: drop-shadow(0 0 8px rgba(108, 255, 154, 0.22));
     }
 
     .aliases {
@@ -313,7 +285,8 @@
     }
 
     .aliases code,
-    .example code {
+    .example code,
+    .mini-grid code {
       display: inline-block;
       margin: 2px 3px 2px 0;
       padding: 2px 6px;
@@ -337,6 +310,27 @@
       font-size: 13px;
     }
 
+    .mini-grid {
+      display: grid;
+      grid-template-columns: 130px 1fr;
+      gap: 8px 12px;
+      margin-top: 12px;
+      padding: 12px;
+      border: 1px solid rgba(63, 217, 255, 0.16);
+      border-radius: 10px;
+      background: rgba(63, 217, 255, 0.035);
+      font-size: 13px;
+    }
+
+    .mini-grid .label {
+      color: var(--muted);
+      font-weight: 800;
+    }
+
+    .mini-grid .value {
+      color: var(--text);
+    }
+
     .no-results {
       display: none;
       padding: 26px;
@@ -356,32 +350,22 @@
       font-size: 13px;
     }
 
-    @media (max-width: 620px) {
-      .featured-card {
+    @media (max-width: 760px) {
+      .command.wide {
+        grid-column: span 1;
+      }
+
+      .mini-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .section-title-row {
         align-items: flex-start;
-      }
-
-      .featured-card > img {
-        width: 56px;
-        height: 56px;
-      }
-
-      .featured-title .emote-command {
-        font-size: 24px;
-      }
-
-      .featured-title .emote-command img {
-        width: 44px;
-        height: 44px;
+        flex-direction: column;
       }
 
       .controls {
         position: static;
-      }
-
-      .section-header {
-        align-items: flex-start;
-        flex-direction: column;
       }
     }
   </style>
@@ -392,43 +376,11 @@
     <div class="terminal-label">Brine Terminal Online</div>
     <h1>SlothyPickle Commands</h1>
     <p class="subtitle">
-      Pickles, chat games, duels, stats, raffle commands, and stream tools.
+      Pickles • Chat Games • Stats • Brine Terminal
     </p>
   </header>
 
   <main>
-    <section class="featured">
-      <div class="featured-card">
-        <img src="images/pickleBOZO.png" alt="BOZO emote">
-        <div>
-          <div class="featured-title">
-            <span class="emote-command">!<img src="images/pickleBOZO.png" alt="slothy68BOZO"></span>
-          </div>
-          <div class="featured-desc">
-            Type exclamation plus the BOZO emote to find the biggest bozo in the pickle economy.
-          </div>
-          <div class="example">
-            Alias: <code>!bozo</code>
-          </div>
-        </div>
-      </div>
-
-      <div class="featured-card">
-        <img src="images/pickleHYPE.gif" alt="HYPE emote">
-        <div>
-          <div class="featured-title">
-            <span class="emote-command">!<img src="images/pickleHYPE.gif" alt="slothy68HYPE"></span>
-          </div>
-          <div class="featured-desc">
-            Type exclamation plus the HYPE emote to find the biggest winner in the pickle economy.
-          </div>
-          <div class="example">
-            Alias: <code>!hype</code>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <div class="controls">
       <input
         id="searchInput"
@@ -439,11 +391,10 @@
 
       <div class="tabs">
         <button class="tab active" data-filter="all">All</button>
-        <button class="tab" data-filter="general">General</button>
         <button class="tab" data-filter="games">Chat Games</button>
-        <button class="tab" data-filter="dueling">Dueling</button>
         <button class="tab" data-filter="pickles">Pickle Points</button>
         <button class="tab" data-filter="stats">Stats</button>
+        <button class="tab" data-filter="general">General</button>
       </div>
     </div>
 
@@ -451,13 +402,175 @@
       No matching commands found. Try searching for a shorter word like <strong>slots</strong>, <strong>stats</strong>, or <strong>pickle</strong>.
     </div>
 
-    <section class="section" data-category="general">
+    <section class="section" data-category="games">
       <div class="section-header">
-        <h2>General</h2>
-        <div class="count">7 commands</div>
+        <div class="section-title-row">
+          <h2>Chat Games</h2>
+          <div class="count">5 command groups</div>
+        </div>
+        <div class="section-subtitle">
+          Spend fake pickles, cause problems, and maybe make terrible financial decisions.
+        </div>
       </div>
 
       <div class="commands">
+        <div class="command" data-search="slots s slot machine spin bet">
+          <div class="command-top">
+            <div class="command-name">Slots</div>
+          </div>
+          <div class="aliases">Commands: <code>!slots</code> <code>!s</code></div>
+          <div class="desc">Spin the pickle slot machine.</div>
+          <div class="example">Examples: <code>!s 10k</code> <code>!slots 2500</code></div>
+        </div>
+
+        <div class="command wide" data-search="roulette r red black green odd even high low number bet">
+          <div class="command-top">
+            <div class="command-name">Roulette</div>
+          </div>
+          <div class="aliases">Commands: <code>!roulette</code> <code>!r</code></div>
+          <div class="desc">Bet pickles on roulette outcomes.</div>
+          <div class="example">
+            Examples:
+            <code>!r red 5k</code>
+            <code>!r b 10k</code>
+            <code>!r odd 2500</code>
+            <code>!r 17 1k</code>
+          </div>
+
+          <div class="mini-grid">
+            <div class="label">Red / Black</div>
+            <div class="value"><code>red</code> <code>r</code> <code>black</code> <code>b</code></div>
+
+            <div class="label">High / Low</div>
+            <div class="value"><code>high</code> <code>low</code></div>
+
+            <div class="label">Odd / Even</div>
+            <div class="value"><code>odd</code> <code>even</code></div>
+
+            <div class="label">Green</div>
+            <div class="value"><code>green</code></div>
+
+            <div class="label">Number</div>
+            <div class="value"><code>0-36</code></div>
+          </div>
+        </div>
+
+        <div class="command wide" data-search="blackjack bj cards hit stand h s">
+          <div class="command-top">
+            <div class="command-name">Blackjack</div>
+          </div>
+          <div class="aliases">Commands: <code>!blackjack</code> <code>!bj</code></div>
+          <div class="desc">Start a blackjack hand with pickles.</div>
+          <div class="example">Example: <code>!bj 10k</code></div>
+
+          <div class="mini-grid">
+            <div class="label">Hit</div>
+            <div class="value"><code>hit</code> <code>!hit</code> <code>h</code></div>
+
+            <div class="label">Stand</div>
+            <div class="value"><code>stand</code> <code>!stand</code> <code>s</code></div>
+          </div>
+        </div>
+
+        <div class="command" data-search="raffle join j enter">
+          <div class="command-top">
+            <div class="command-name">Raffle Join</div>
+          </div>
+          <div class="aliases">Commands: <code>!join</code> <code>!j</code></div>
+          <div class="desc">Join an active raffle when entries are open.</div>
+        </div>
+
+        <div class="command wide" data-search="duel pp duel challenge accept decline">
+          <div class="command-top">
+            <div class="command-name">PP Duel</div>
+          </div>
+          <div class="aliases">Command: <code>!duel</code></div>
+          <div class="desc">Challenge another viewer to a pickle duel.</div>
+          <div class="example">Example: <code>!duel username 10k</code></div>
+
+          <div class="mini-grid">
+            <div class="label">Responses</div>
+            <div class="value"><code>!accept</code> <code>!decline</code></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" data-category="pickles">
+      <div class="section-header">
+        <div class="section-title-row">
+          <h2>Pickle Points</h2>
+          <div class="count">4 commands</div>
+        </div>
+        <div class="section-subtitle">
+          Check balances, gift pickles, and let the brine economy spiral. To check another viewer, type the command followed by their username, like <code>!p username</code>.
+        </div>
+      </div>
+
+      <div class="commands">
+        <div class="command" data-search="pickle points pickles p balance">
+          <div class="command-top">
+            <div class="command-name">Pickle Points</div>
+          </div>
+          <div class="aliases">Commands: <code>!pickles</code> <code>!p</code></div>
+          <div class="desc">Check your pickle balance.</div>
+        </div>
+
+        <div class="command" data-search="gift give pickles transfer">
+          <div class="command-top">
+            <div class="command-name">Gift</div>
+          </div>
+          <div class="aliases">Command: <code>!gift</code></div>
+          <div class="desc">Gift pickles to another viewer.</div>
+          <div class="example">Example: <code>!gift username 10k</code></div>
+        </div>
+
+        <div class="command" data-search="leaderboard lb top pickles">
+          <div class="command-top">
+            <div class="command-name">Leaderboard</div>
+          </div>
+          <div class="aliases">Commands: <code>!leaderboard</code> <code>!lb</code></div>
+          <div class="desc">Show the pickle leaderboard.</div>
+        </div>
+
+        <div class="command" data-search="pickle party pp falling pickles screen">
+          <div class="command-top">
+            <div class="command-name">Pickle Party</div>
+          </div>
+          <div class="aliases">Command: <code>!pp</code></div>
+          <div class="desc">LET PICKLES FLY DOWN YOUR SCREEN.</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" data-category="stats">
+      <div class="section-header">
+        <div class="section-title-row">
+          <h2>Stats</h2>
+          <div class="count">12 commands</div>
+        </div>
+        <div class="section-subtitle">
+          Most stat commands can check another viewer by typing the command followed by their username, like <code>!stats username</code>.
+        </div>
+      </div>
+
+      <div class="commands">
+        <div class="command" data-search="game stats stats individual personal user">
+          <div class="command-top">
+            <div class="command-name">Game Stats</div>
+          </div>
+          <div class="aliases">Command: <code>!stats</code></div>
+          <div class="desc">Shows that person's individual chat game stats.</div>
+        </div>
+
+        <div class="command" data-search="all stats as allstats compared other people viewers leaderboard comparison">
+          <div class="command-top">
+            <div class="command-name">All Stats</div>
+          </div>
+          <div class="aliases">Commands: <code>!allstats</code> <code>!as</code></div>
+          <div class="desc">Shows your stats compared against other viewers.</div>
+        </div>
+
         <div class="command" data-search="slothy68bozo bozo biggest bozo net negative">
           <div class="command-top">
             <div class="command-name">
@@ -466,34 +579,6 @@
           </div>
           <div class="aliases">Alias: <code>!bozo</code></div>
           <div class="desc">Shows the viewer with the largest net negative pickle result.</div>
-          <div class="example">Example: <code>!bozo</code></div>
-        </div>
-
-        <div class="command" data-search="brine report brinereport economy inflation pickles circulation">
-          <div class="command-top">
-            <div class="command-name">Brine Report</div>
-          </div>
-          <div class="aliases">Command: <code>!brinereport</code></div>
-          <div class="desc">Shows the pickle economy report, including inflation and circulation info.</div>
-          <div class="example">Example: <code>!brinereport</code></div>
-        </div>
-
-        <div class="command" data-search="discord server link">
-          <div class="command-top">
-            <div class="command-name">Discord</div>
-          </div>
-          <div class="aliases">Command: <code>!discord</code></div>
-          <div class="desc">Posts the Discord link in chat.</div>
-          <div class="example">Example: <code>!discord</code></div>
-        </div>
-
-        <div class="command" data-search="games help commands chat games">
-          <div class="command-top">
-            <div class="command-name">Games Help</div>
-          </div>
-          <div class="aliases">Command: <code>!games</code></div>
-          <div class="desc">Shows a quick chat-games help message.</div>
-          <div class="example">Example: <code>!games</code></div>
         </div>
 
         <div class="command" data-search="slothy68hype hype biggest winner net gain">
@@ -504,187 +589,22 @@
           </div>
           <div class="aliases">Alias: <code>!hype</code></div>
           <div class="desc">Shows the viewer with the biggest net gain.</div>
-          <div class="example">Example: <code>!hype</code></div>
         </div>
 
-        <div class="command" data-search="opt out optout pickles games leaderboards">
+        <div class="command" data-search="brine report brinereport economy inflation pickles circulation">
           <div class="command-top">
-            <div class="command-name">Opt Out</div>
+            <div class="command-name">Brine Report</div>
           </div>
-          <div class="aliases">Command: <code>!optout</code></div>
-          <div class="desc">Opts you out of pickles, chat games, and related leaderboards.</div>
-          <div class="example">Example: <code>!optout</code></div>
-        </div>
-
-        <div class="command" data-search="pickle party pp">
-          <div class="command-top">
-            <div class="command-name">Pickle Party</div>
-          </div>
-          <div class="aliases">Command: <code>!pp</code></div>
-          <div class="desc">Runs the Pickle Party command.</div>
-          <div class="example">Example: <code>!pp</code></div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" data-category="games">
-      <div class="section-header">
-        <h2>Chat Games</h2>
-        <div class="count">6 commands</div>
-      </div>
-
-      <div class="commands">
-        <div class="command" data-search="blackjack bj cards hit stand">
-          <div class="command-top">
-            <div class="command-name">Blackjack</div>
-          </div>
-          <div class="aliases">Commands: <code>!blackjack</code> <code>!bj</code></div>
-          <div class="desc">Starts a blackjack hand with pickles.</div>
-          <div class="example">Example: <code>!bj 10k</code></div>
-        </div>
-
-        <div class="command" data-search="bj hit hit h blackjack">
-          <div class="command-top">
-            <div class="command-name">BJ Hit</div>
-          </div>
-          <div class="aliases">Commands: <code>hit</code> <code>!hit</code> <code>h</code></div>
-          <div class="desc">Draws another card during an active blackjack hand.</div>
-          <div class="example">Example: <code>!hit</code></div>
-        </div>
-
-        <div class="command" data-search="bj stand stand s blackjack">
-          <div class="command-top">
-            <div class="command-name">BJ Stand</div>
-          </div>
-          <div class="aliases">Commands: <code>stand</code> <code>!stand</code> <code>s</code></div>
-          <div class="desc">Stands during an active blackjack hand.</div>
-          <div class="example">Example: <code>stand</code></div>
-        </div>
-
-        <div class="command" data-search="raffle join j enter">
-          <div class="command-top">
-            <div class="command-name">Raffle Join</div>
-          </div>
-          <div class="aliases">Commands: <code>!join</code> <code>!j</code></div>
-          <div class="desc">Joins an active raffle when entries are open.</div>
-          <div class="example">Example: <code>!join</code></div>
-        </div>
-
-        <div class="command" data-search="roulette r red black green odd even high low number">
-          <div class="command-top">
-            <div class="command-name">Roulette</div>
-          </div>
-          <div class="aliases">Commands: <code>!roulette</code> <code>!r</code></div>
-          <div class="desc">Bet pickles on roulette outcomes.</div>
-          <div class="example">Example: <code>!r red 5k</code></div>
-        </div>
-
-        <div class="command" data-search="slots s slot machine spin">
-          <div class="command-top">
-            <div class="command-name">Slots</div>
-          </div>
-          <div class="aliases">Commands: <code>!slots</code> <code>!s</code></div>
-          <div class="desc">Spin the pickle slot machine.</div>
-          <div class="example">Example: <code>!s 10k</code></div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" data-category="dueling">
-      <div class="section-header">
-        <h2>Dueling</h2>
-        <div class="count">3 commands</div>
-      </div>
-
-      <div class="commands">
-        <div class="command" data-search="duel pp duel challenge user">
-          <div class="command-top">
-            <div class="command-name">PP Duel</div>
-          </div>
-          <div class="aliases">Command: <code>!duel</code></div>
-          <div class="desc">Challenge another viewer to a duel.</div>
-          <div class="example">Example: <code>!duel @username 10k</code></div>
-        </div>
-
-        <div class="command" data-search="accept duel">
-          <div class="command-top">
-            <div class="command-name">Accept Duel</div>
-          </div>
-          <div class="aliases">Command: <code>!accept</code></div>
-          <div class="desc">Accepts a pending duel challenge.</div>
-          <div class="example">Example: <code>!accept</code></div>
-        </div>
-
-        <div class="command" data-search="decline duel">
-          <div class="command-top">
-            <div class="command-name">Decline</div>
-          </div>
-          <div class="aliases">Command: <code>!decline</code></div>
-          <div class="desc">Declines a pending duel challenge.</div>
-          <div class="example">Example: <code>!decline</code></div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" data-category="pickles">
-      <div class="section-header">
-        <h2>Pickle Points</h2>
-        <div class="count">3 commands</div>
-      </div>
-
-      <div class="commands">
-        <div class="command" data-search="gift give pickles transfer">
-          <div class="command-top">
-            <div class="command-name">Gift</div>
-          </div>
-          <div class="aliases">Command: <code>!gift</code></div>
-          <div class="desc">Gift pickles to another viewer.</div>
-          <div class="example">Example: <code>!gift @username 10k</code></div>
-        </div>
-
-        <div class="command" data-search="leaderboard lb top pickles">
-          <div class="command-top">
-            <div class="command-name">Leaderboard</div>
-          </div>
-          <div class="aliases">Commands: <code>!leaderboard</code> <code>!lb</code></div>
-          <div class="desc">Shows the pickle leaderboard.</div>
-          <div class="example">Example: <code>!lb</code></div>
-        </div>
-
-        <div class="command" data-search="pickle points pickles p balance">
-          <div class="command-top">
-            <div class="command-name">Pickle Points</div>
-          </div>
-          <div class="aliases">Commands: <code>!pickles</code> <code>!p</code></div>
-          <div class="desc">Checks your pickle balance.</div>
-          <div class="example">Example: <code>!p</code></div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" data-category="stats">
-      <div class="section-header">
-        <h2>Stats</h2>
-        <div class="count">9 commands</div>
-      </div>
-
-      <div class="commands">
-        <div class="command" data-search="all stats as allstats">
-          <div class="command-top">
-            <div class="command-name">All Stats</div>
-          </div>
-          <div class="aliases">Commands: <code>!as</code> <code>!allstats</code></div>
-          <div class="desc">Shows broader stats across chat games.</div>
-          <div class="example">Example: <code>!allstats</code></div>
+          <div class="aliases">Command: <code>!brinereport</code></div>
+          <div class="desc">Shows pickle economy inflation and circulation info.</div>
         </div>
 
         <div class="command" data-search="blackjack stats bjstats blackjackstats">
           <div class="command-top">
-            <div class="command-name">BJ Stats</div>
+            <div class="command-name">Blackjack Stats</div>
           </div>
           <div class="aliases">Commands: <code>!blackjackstats</code> <code>!bjstats</code></div>
           <div class="desc">Shows blackjack stats.</div>
-          <div class="example">Example: <code>!bjstats</code></div>
         </div>
 
         <div class="command" data-search="duel stats duelstats ds">
@@ -693,16 +613,6 @@
           </div>
           <div class="aliases">Commands: <code>!duelstats</code> <code>!ds</code></div>
           <div class="desc">Shows duel stats.</div>
-          <div class="example">Example: <code>!ds</code></div>
-        </div>
-
-        <div class="command" data-search="game stats stats">
-          <div class="command-top">
-            <div class="command-name">Game Stats</div>
-          </div>
-          <div class="aliases">Command: <code>!stats</code></div>
-          <div class="desc">Shows your overall chat-game stats.</div>
-          <div class="example">Example: <code>!stats @username</code></div>
         </div>
 
         <div class="command" data-search="pickpocket stats ppstats">
@@ -711,7 +621,6 @@
           </div>
           <div class="aliases">Command: <code>!ppstats</code></div>
           <div class="desc">Shows pickpocket stats.</div>
-          <div class="example">Example: <code>!ppstats</code></div>
         </div>
 
         <div class="command" data-search="raffle stats rafflestats">
@@ -720,7 +629,6 @@
           </div>
           <div class="aliases">Command: <code>!rafflestats</code></div>
           <div class="desc">Shows raffle stats.</div>
-          <div class="example">Example: <code>!rafflestats</code></div>
         </div>
 
         <div class="command" data-search="roulette stats roulettestats rstats">
@@ -729,7 +637,6 @@
           </div>
           <div class="aliases">Commands: <code>!roulettestats</code> <code>!rstats</code></div>
           <div class="desc">Shows roulette stats.</div>
-          <div class="example">Example: <code>!rstats</code></div>
         </div>
 
         <div class="command" data-search="slot slots stats slotstats ss">
@@ -738,7 +645,6 @@
           </div>
           <div class="aliases">Commands: <code>!slotstats</code> <code>!ss</code></div>
           <div class="desc">Shows slot machine stats.</div>
-          <div class="example">Example: <code>!ss</code></div>
         </div>
 
         <div class="command" data-search="watch stats watchstats ws watch time">
@@ -747,7 +653,44 @@
           </div>
           <div class="aliases">Commands: <code>!watchstats</code> <code>!ws</code></div>
           <div class="desc">Shows watch time and pickles earned from watching.</div>
-          <div class="example">Example: <code>!ws @username</code></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" data-category="general">
+      <div class="section-header">
+        <div class="section-title-row">
+          <h2>General</h2>
+          <div class="count">3 commands</div>
+        </div>
+        <div class="section-subtitle">
+          Stream links and basic help commands.
+        </div>
+      </div>
+
+      <div class="commands">
+        <div class="command" data-search="discord server link">
+          <div class="command-top">
+            <div class="command-name">Discord</div>
+          </div>
+          <div class="aliases">Command: <code>!discord</code></div>
+          <div class="desc">Posts the Discord link in chat.</div>
+        </div>
+
+        <div class="command" data-search="games help commands chat games">
+          <div class="command-top">
+            <div class="command-name">Games Help</div>
+          </div>
+          <div class="aliases">Command: <code>!games</code></div>
+          <div class="desc">Shows a quick chat-games help message.</div>
+        </div>
+
+        <div class="command" data-search="opt out optout pickles games leaderboards">
+          <div class="command-top">
+            <div class="command-name">Opt Out</div>
+          </div>
+          <div class="aliases">Command: <code>!optout</code></div>
+          <div class="desc">Opts you out of pickles, chat games, and related leaderboards.</div>
         </div>
       </div>
     </section>
